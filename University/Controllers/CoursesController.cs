@@ -42,7 +42,7 @@ public ActionResult Create(Course course, int StudentId)
 
     public ActionResult Details(int id)
     {
-        ViewBag.Completed = new SelectList(_db.CourseStudent, "Completed");
+        ViewBag.Completed = _db.CourseStudent.FirstOrDefault(courseStudent => courseStudent.CourseStudentId == id);;
         var thisCourse = _db.Courses
         .Include(course => course.Students)
         .ThenInclude(join => join.Student)

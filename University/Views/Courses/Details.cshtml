@@ -8,6 +8,11 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
+@if(@Model.Students.Completed == false)
+{
+
+}
+
 @if(@Model.Students.Count == 0)
 {
   <p>This Course does not belong to any Students</p>
@@ -24,9 +29,9 @@ else
       @Html.Hidden("joinId", @join.CourseStudentId)
       <input type="submit" value="Delete"/>
     }
-    @using (Html.BeginForm("Completed", "Courses"))
+    @* @using (Html.BeginForm("Completed", "Courses"))
     {
-      @if (@model.Completed == false)
+      @if (@Model.CourseStudent.Completed == false)
       {
         @Html.Hidden("joinId", @join.CourseStudentId)
         <input type="submit" value="Complete"/>
@@ -34,9 +39,8 @@ else
       else
       {
         <p>Completed</p>
-      }
-      
-    }
+      }      
+    } *@
   }
   </ul>
 }
