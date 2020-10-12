@@ -1,0 +1,38 @@
+@{
+  Layout = "_Layout";
+}
+
+@using University.Models;
+@model University.Models.Department;
+
+<h2>Department Details</h2>
+<hr />
+<h3>Department: @Html.DisplayFor(model => model.DepartmentName)</h3>
+<p>Students in this department:</p>
+<ul>
+@if (@Model.Students.Count == 0)
+{
+  <p>no students found</p>
+}
+
+@foreach (Student student in @Model.Students)
+{
+  <li>@student.Name</li>
+}
+</ul>
+<hr />
+<p>Courses in this department:</p>
+<ul>
+@if (@Model.Courses.Count == 0)
+{
+  <p>no Courses found</p>
+}
+
+@foreach (Course course in @Model.Courses)
+{
+  <li>@course.Name</li>
+}
+</ul>
+<p>@Html.ActionLink("Back to departments", "Index")</p>
+<p>@Html.ActionLink("Edit Department", "Edit", new { id = Model.DepartmentId })</p>
+<p>@Html.ActionLink("Delete Department", "Delete", new { id = Model.DepartmentId })</p>
