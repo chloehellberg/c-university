@@ -3,19 +3,18 @@
 }
 
 @model University.Models.Course
-
+@Html.ActionLink("Back to courses", "Index", null, null, new { @class="btn btn-info" })
 <h2>Add a student</h2>
 
-<h4>Add a student to this course: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Add a student to @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.CourseId)
-
-  @Html.Label("Select student")
-  @Html.DropDownList("studentId")
-
-  <input type="submit" value="Save" />
+  <p>
+    @Html.Label("Select student")
+    @Html.DropDownList("studentId")
+  </p>
+  <input type="submit" value="Save" class="btn btn-info"/>
 }
 
-<p>@Html.ActionLink("Back to courses", "Index")</p>

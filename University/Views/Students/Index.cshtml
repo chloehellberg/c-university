@@ -4,7 +4,8 @@
 
 @using University.Models;
 @model List<University.Models.Student>;
-
+@Html.ActionLink("Add new student", "Create", null, new { @class="btn btn-info" })
+@Html.ActionLink("Home", "Index", "Home", null, new { @class="btn btn-info" })
 <h1>Students</h1>
 
 @if (@Model.Count == 0)
@@ -16,7 +17,3 @@
 {
   <li>@Html.ActionLink($"{student.Name}", "Details", new { id = student.StudentId })</li>
 }
-
-<p>@Html.ActionLink("Add new student", "Create")</p>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -3,14 +3,13 @@
 }
 
 @model University.Models.Department
-
-<h4>Add a new department</h4>
+@Html.ActionLink("Show all departments", "Index", null, new { @class="btn btn-info" })
+<h4>Add Department</h4>
 
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.DepartmentName)
     @Html.TextBoxFor(model => model.DepartmentName)
 
-    <input type="submit" value="Add new department" class="btn btn-default" />
+    <input type="submit" value="Add new department" class="btn btn-info" />
 }
-<p>@Html.ActionLink("Show all departments", "Index")</p>

@@ -3,10 +3,10 @@
 }
 
 @model University.Models.Department
-
+@Html.ActionLink("Back to department list", "Index", null, new { @class="btn btn-info" })
 <h2>Edit</h2>
 
-<h4>Edit this department: @Html.DisplayFor(model => model.DepartmentName)</h4>
+<h4>Edit @Html.DisplayFor(model => model.DepartmentName)</h4>
 
 @using (Html.BeginForm())
 {
@@ -15,7 +15,6 @@
     @Html.LabelFor(model => model.DepartmentName)
     @Html.EditorFor(model => model.DepartmentName)
 
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" class="btn btn-info"/>
 }
 
-<p>@Html.ActionLink("Back to department list", "Index")</p>

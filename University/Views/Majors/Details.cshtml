@@ -4,7 +4,9 @@
 
 @using University.Models;
 @model University.Models.Major;
-
+@Html.ActionLink("Back to Majors", "Index", null, new { @class="btn btn-info" })
+@Html.ActionLink("Edit Major", "Edit", new { id = Model.MajorId }, new { @class="btn btn-info" })
+@Html.ActionLink("Delete Major", "Delete", new { id = Model.MajorId }, new { @class="btn btn-info" })
 <h2>Major Details</h2>
 <hr />
 <h3>Major: @Html.DisplayFor(model => model.MajorName)</h3>
@@ -20,9 +22,3 @@
   <li>@student.Name</li>
 }
 </ul>
-<hr />
-<p>Courses in this Major:</p>
-<ul>
-<p>@Html.ActionLink("Back to Majors", "Index")</p>
-<p>@Html.ActionLink("Edit Major", "Edit", new { id = Model.MajorId })</p>
-<p>@Html.ActionLink("Delete Major", "Delete", new { id = Model.MajorId })</p>

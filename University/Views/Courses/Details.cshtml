@@ -3,6 +3,10 @@
 }
 
 @model University.Models.Course
+@Html.ActionLink("Back to list", "Index", null, null, new { @class="btn btn-info" })
+@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId }, new { @class="btn btn-info" })
+@Html.ActionLink("Add a Student", "AddStudent", new { id = Model.CourseId }, new { @class="btn btn-info" })
+@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId }, new { @class="btn btn-info" })
 
 <h2>@Html.DisplayFor(model => model.Name)'s Details</h2>
 <hr />
@@ -15,7 +19,7 @@
 }
 else
 {
-  <h4>Students the Course belongs to:</h4>
+  <h4>Students in @Html.DisplayFor(model => model.Name)</h4>
   <ul>
   @foreach(var join in Model.Students)
   {
@@ -23,14 +27,14 @@ else
     @using (Html.BeginForm("DeleteStudent", "Courses"))
     {
       @Html.Hidden("joinId", @join.CourseStudentId)
-      <input type="submit" value="Delete" class="btn"/>
+      <input type="submit" value="Delete" class="btn btn-info"/>
     }
     @using (Html.BeginForm("Completed", "Courses"))
     {
       @if (@join.Completed == false)
       {
         @Html.Hidden("joinId", @join.CourseStudentId)
-        <input type="submit" value="Complete" class="btn"/>
+        <input type="submit" value="Complete" class="btn btn-info"/>
       }
       else
       {
@@ -41,8 +45,3 @@ else
   }
   </ul>
 }
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId })</p>
-<p>@Html.ActionLink("Add a Student", "AddStudent", new { id = Model.CourseId })</p>
-<p>@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId })</p>

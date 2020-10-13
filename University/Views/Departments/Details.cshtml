@@ -4,7 +4,9 @@
 
 @using University.Models;
 @model University.Models.Department;
-
+@Html.ActionLink("Back to departments", "Index", null, new { @class="btn btn-info" })
+@Html.ActionLink("Edit Department", "Edit", new { id = Model.DepartmentId }, new { @class="btn btn-info" })
+@Html.ActionLink("Delete Department", "Delete", new { id = Model.DepartmentId }, new { @class="btn btn-info" })
 <h2>Department Details</h2>
 <hr />
 <h3>Department: @Html.DisplayFor(model => model.DepartmentName)</h3>
@@ -33,6 +35,3 @@
   <li>@course.Name</li>
 }
 </ul>
-<p>@Html.ActionLink("Back to departments", "Index")</p>
-<p>@Html.ActionLink("Edit Department", "Edit", new { id = Model.DepartmentId })</p>
-<p>@Html.ActionLink("Delete Department", "Delete", new { id = Model.DepartmentId })</p>
