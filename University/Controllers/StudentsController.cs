@@ -23,13 +23,14 @@ namespace University.Controllers
     }
     public ActionResult Create()
     {
-      ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "Name");
-      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
+      ViewBag.MajorId = new SelectList(_db.Majors, "MajorId", "MajorName");
       return View();
     }
     [HttpPost]
     public ActionResult Create(Student student)
     {
+      Major majorRow = _db.Majors.FirstOrDefault(majors => majors.MajorId == student.MajorId);
+      student.DepartmentId = majorRow.DepartmentId;
       _db.Students.Add(student);
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -45,12 +46,14 @@ namespace University.Controllers
     public ActionResult Edit(int id)
     {
       var thisStudent = _db.Students.FirstOrDefault(students => students.StudentId == id);
-      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
+      ViewBag.MajorId = new SelectList(_db.Majors, "MajorId", "MajorName");
       return View(thisStudent);
     }
     [HttpPost]
     public ActionResult Edit(Student student)
     {
+      Major majorRow = _db.Majors.FirstOrDefault(majors => majors.MajorId == student.MajorId);
+      student.DepartmentId = majorRow.DepartmentId;
       _db.Entry(student).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -68,5 +71,13 @@ namespace University.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
-}
+    public ActionResult Completed(int joinId)
+    {
+        var joinEntry = _db.CourseStudent.FirstOrDefault(entry => entry.CourseStudentId == joinId);
+        joinEntry.Completed = true;
+        _db.Entry(joinEntry).State = EntityState.Modified;
+        _db.SaveChanges();
+        return RedirectToAction("Details", new { id = joinEntry.StudentId });
+    }
+  }
 }

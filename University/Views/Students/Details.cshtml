@@ -18,7 +18,21 @@ else
   <ul>
   @foreach(var join in Model.Courses)
   {
-    <li>@join.Course.Name</li>
+    <li>@join.Course.Name - 
+    
+      @using (Html.BeginForm("Completed", "Students"))
+      {
+        @if (@join.Completed == false)
+        {
+          @Html.Hidden("joinId", @join.CourseStudentId)
+          <input type="submit" value="Complete" class="btn"/>
+        }
+        else
+        {
+          <span>Completed</span>
+        }  
+      } 
+    </li>
   }
   </ul>
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace University.Models
 {
-  public class Student
+    public class Student
     {
         public Student()
         {
@@ -13,8 +13,9 @@ namespace University.Models
         public string Date { get; set; }
         public string Name { get; set; }
         public int DepartmentId { get; set; }
-
+        public int MajorId { get; set; }
         public virtual Department Department { get; set; }
+        public virtual Major Major { get; set; }
         public virtual ICollection<CourseStudent> Courses { get; set; }
     }
 }

@@ -10,12 +10,12 @@
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.CourseId)
+  @Html.HiddenFor(model => model.CourseId)
 
-    @Html.Label("Select student")
-    @Html.DropDownList("studentId")
+  @Html.Label("Select student")
+  @Html.DropDownList("studentId")
 
-    <input type="submit" value="Save" />
+  <input type="submit" value="Save" />
 }
 
 <p>@Html.ActionLink("Back to courses", "Index")</p>

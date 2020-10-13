@@ -8,15 +8,18 @@
 
 @using (Html.BeginForm())
 {
+  <p>
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
-
+  </p>
+  <p>
     @Html.LabelFor(model => model.Number)
     @Html.TextBoxFor(model => model.Number)
-
+  </p>
+  <p>
     @Html.Label("Select department")
     @Html.DropDownList("DepartmentId")
-
-    <input type="submit" value="Add new course" class="btn btn-default" />
+  </p>
+  <input type="submit" value="Add new course" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all courses", "Index")</p>

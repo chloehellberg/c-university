@@ -42,7 +42,6 @@ public ActionResult Create(Course course, int StudentId)
 
     public ActionResult Details(int id)
     {
-        ViewBag.Completed = _db.CourseStudent.FirstOrDefault(courseStudent => courseStudent.CourseStudentId == id);;
         var thisCourse = _db.Courses
         .Include(course => course.Students)
         .ThenInclude(join => join.Student)
@@ -53,7 +52,6 @@ public ActionResult Create(Course course, int StudentId)
     public ActionResult Edit(int id)
     {
         var thisCourse = _db.Courses.FirstOrDefault(courses => courses.CourseId == id);
-        // ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "Name");
         ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "DepartmentName");
         return View(thisCourse);
     }

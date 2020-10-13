@@ -8,10 +8,6 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
-@if(@Model.Students.Completed == false)
-{
-
-}
 
 @if(@Model.Students.Count == 0)
 {
@@ -23,24 +19,25 @@ else
   <ul>
   @foreach(var join in Model.Students)
   {
-    <li>@join.Student.Name</li>
+    <li>@join.Student.Name
     @using (Html.BeginForm("DeleteStudent", "Courses"))
     {
       @Html.Hidden("joinId", @join.CourseStudentId)
-      <input type="submit" value="Delete"/>
+      <input type="submit" value="Delete" class="btn"/>
     }
-    @* @using (Html.BeginForm("Completed", "Courses"))
+    @using (Html.BeginForm("Completed", "Courses"))
     {
-      @if (@Model.CourseStudent.Completed == false)
+      @if (@join.Completed == false)
       {
         @Html.Hidden("joinId", @join.CourseStudentId)
-        <input type="submit" value="Complete"/>
+        <input type="submit" value="Complete" class="btn"/>
       }
       else
       {
-        <p>Completed</p>
+        <span>Completed</span>
       }      
-    } *@
+    }
+    </li>
   }
   </ul>
 }
