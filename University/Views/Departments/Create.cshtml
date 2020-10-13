@@ -3,7 +3,7 @@
 }
 
 @model University.Models.Department
-@Html.ActionLink("Show all departments", "Index", null, new { @class="btn btn-info" })
+@Html.ActionLink("Show all departments", "Index", null, new { @class="btn btn-info fa fa-school" })
 <h4>Add Department</h4>
 
 @using (Html.BeginForm())
@@ -11,5 +11,5 @@
     @Html.LabelFor(model => model.DepartmentName)
     @Html.TextBoxFor(model => model.DepartmentName)
 
-    <input type="submit" value="Add new department" class="btn btn-info" />
+    <input type="submit" value="Add new department" class="btn btn-info fa fa-plus-circle" />
 }

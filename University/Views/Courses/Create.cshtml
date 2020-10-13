@@ -3,7 +3,7 @@
 }
 
 @model University.Models.Course
-@Html.ActionLink("Show all courses", "Index", null, null, new { @class="btn btn-info" })
+@Html.ActionLink("Show all courses", "Index", null, null, new { @class="btn btn-info fa fa-pencil-ruler" })
 <h4>Add Course</h4>
 
 @using (Html.BeginForm())
@@ -20,5 +20,5 @@
     @Html.Label("Select department")
     @Html.DropDownList("DepartmentId")
   </p>
-  <input type="submit" value="Add new course" class="btn btn-default" />
+  <input type="submit" value="Add new course" class="btn btn-default fa fa-plus-circle" />
 }

@@ -4,8 +4,8 @@
 
 @using University.Models;
 @model List<University.Models.Course>;
-@Html.ActionLink("Add new course", "Create", null, new { @class="btn btn-info" })
-@Html.ActionLink("Home", "Index", "Home", null, new { @class="btn btn-info" })
+@Html.ActionLink("Add new course", "Create", null, new { @class="btn btn-info fa fa-plus-circle" })
+@Html.ActionLink("Home", "Index", "Home", null, new { @class="btn btn-info fa fa-home" })
 <h1>Courses</h1>
 
 @if (@Model.Count == 0)

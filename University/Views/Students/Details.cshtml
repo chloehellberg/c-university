@@ -3,10 +3,11 @@
 }
 
 @model University.Models.Student;
-@Html.ActionLink("Back to students", "Index", null, new { @class="btn btn-info" })
-@Html.ActionLink("Edit student", "Edit", new { id = Model.StudentId }, new { @class="btn btn-info" })
-@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId }, new { @class="btn btn-info" })
-<h2>@Html.DisplayNameFor(model => model.Name)'s Details</h2>
+@Html.ActionLink(" Back to students", "Index",null, null, new { @class="btn btn-info fa fa-graduation-cap" })
+@Html.ActionLink(" Edit student", "Edit", new { id = Model.StudentId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink(" Delete Student", "Delete", new { id = Model.StudentId }, new { @class="btn btn-info fa fa-minus-circle" })
+
+<h2>@Html.DisplayFor(model => model.Name)'s Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
@@ -21,19 +22,14 @@ else
   @foreach(var join in Model.Courses)
   {
     <li>@join.Course.Name - 
-    
-      @using (Html.BeginForm("Completed", "Students"))
+      @if (@join.Completed == false)
       {
-        @if (@join.Completed == false)
-        {
-          @Html.Hidden("joinId", @join.CourseStudentId)
-          <input type="submit" value="Complete" class="btn btn-info"/>
-        }
-        else
-        {
-          <span>Completed</span>
-        }  
-      } 
+        @Html.ActionLink("Complete", "Completed", "Students", new { joinId = join.CourseStudentId }, new { @class="btn btn-info" })
+      }
+      else
+      {
+        <span>Completed</span>
+      }
     </li>
   }
   </ul>
