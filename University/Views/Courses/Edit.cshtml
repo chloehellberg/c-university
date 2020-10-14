@@ -3,22 +3,24 @@
 }
 
 @model University.Models.Course
-@Html.ActionLink("Back to courses", "Index", null, new { @class="btn btn-info fa fa-pencil-ruler" })
+@Html.ActionLink(" All Courses", "Index", null, new { @class="btn btn-info fa fa-book" })
 <h2>Edit</h2>
 
 <h4>Edit @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.CourseId)
-    <p>
-      @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
-    </p>
-    <p>
-      @Html.Label("Select Department")
-    @Html.DropDownList("DepartmentId")
-    </p>
-    <input type="submit" value="Save" class="btn btn-info fa fa-edit"/>
+  @Html.HiddenFor(model => model.CourseId)
+  <table>
+    <tr>
+      <td>@Html.LabelFor(model => model.Name)</td>
+      <td>@Html.EditorFor(model => model.Name)</td>
+    </tr>
+    <tr>
+      <td>@Html.Label("Select Department")</td>
+      <td>@Html.DropDownList("DepartmentId")</td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-info fa"><i class="fa-edit"> Save</i></button>
 }
 

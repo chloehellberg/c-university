@@ -3,11 +3,11 @@
 }
 
 @model University.Models.Department
-@Html.ActionLink("Back to Departments", "Index", null, new { @class="btn btn-info fa fa-school" })
+@Html.ActionLink(" All Departments", "Index", null, new { @class="btn btn-info fa fa-bank" })
 <h2>Are you sure you want to delete this?</h2>
 
 @Html.DisplayNameFor(model => model.DepartmentName): @Html.DisplayFor(model => model.DepartmentName)
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Delete" class="btn btn-info fa fa-trash-alt"/>
+  <button type="submit" class="btn btn-info fa"><i class="fa-minus-circle"> Delete</i></button>
 }

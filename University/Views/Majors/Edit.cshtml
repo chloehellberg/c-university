@@ -3,21 +3,23 @@
 }
 
 @model University.Models.Major
-@Html.ActionLink("Back to Major list", "Index", null, new { @class="btn btn-info fa fa-scroll" })
+@Html.ActionLink(" All Majors", "Index", null, new { @class="btn btn-info fa fa-bookmark-o" })
 <h2>Edit</h2>
 
-<h4>Edit this Major: @Html.DisplayFor(model => model.MajorName)</h4>
+<h4>Edit @Html.DisplayFor(model => model.MajorName)</h4>
 
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.MajorId)
-  <p>
-    @Html.LabelFor(model => model.MajorName)
-    @Html.EditorFor(model => model.MajorName)
-  </p>
-  <p>
-    @Html.Label("Select Department")
-    @Html.DropDownList("DepartmentId")
-  </p>
-    <input type="submit" value="Save" class="btn btn-info fa fa-edit"/>
+  <table>
+    <tr>
+      <td>@Html.LabelFor(model => model.MajorName)</td>
+      <td>@Html.EditorFor(model => model.MajorName)</td>
+    </tr>
+    <tr>
+      <td>@Html.Label("Select Department")</td>
+      <td>@Html.DropDownList("DepartmentId")</td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-info fa "><i class="fa-edit"> Save</i></button>
 }

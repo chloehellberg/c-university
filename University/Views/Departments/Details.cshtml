@@ -4,9 +4,9 @@
 
 @using University.Models;
 @model University.Models.Department;
-@Html.ActionLink("Back to departments", "Index", null, new { @class="btn btn-info fa fa-school" })
-@Html.ActionLink("Edit Department", "Edit", null, new { id = Model.DepartmentId }, new { @class="btn btn-info fa fa-edit" })
-@Html.ActionLink("Delete Department", "Delete", new { id = Model.DepartmentId }, new { @class="btn btn-info fa fa-trash-alt" })
+@Html.ActionLink(" All Departments", "Index", null, new { @class="btn btn-info fa fa-bank" })
+@Html.ActionLink(" Edit", "Edit", null, new { id = Model.DepartmentId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink(" Delete", "Delete", new { id = Model.DepartmentId }, new { @class="btn btn-info fa fa-minus-circle" })
 
 <h2>Department Details</h2>
 <hr />

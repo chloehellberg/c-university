@@ -3,10 +3,11 @@
 }
 
 @model University.Models.Course
-@Html.ActionLink("Back to courses", "Index", null, null, new { @class="btn btn-info fa fa-pencil-ruler" })
-@Html.ActionLink("Edit Course", "Edit", new { id = Model.CourseId }, new { @class="btn btn-info fa fa-edit" })
-@Html.ActionLink("Add a Student", "AddStudent", new { id = Model.CourseId }, new { @class="btn btn-info fa fa-plus-circle" })
-@Html.ActionLink("Delete Course", "Delete", new { id = Model.CourseId }, new { @class="btn btn-info fa fa-minus-circle" })
+@Html.ActionLink(" All Courses", "Index", null, null, new { @class="btn btn-info fa fa-book" })
+@Html.ActionLink(" Edit", "Edit", new { id = Model.CourseId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink(" Delete", "Delete", new { id = Model.CourseId }, new { @class="btn btn-info fa fa-minus-circle" })
+@Html.ActionLink(" Add Student", "AddStudent", new { id = Model.CourseId }, new { @class="btn btn-info fa fa-plus-circle" })
+
 
 <h2>@Html.DisplayFor(model => model.Name)'s Details</h2>
 <hr />
@@ -24,23 +25,15 @@ else
   @foreach(var join in Model.Students)
   {
     <li>@join.Student.Name
-    @using (Html.BeginForm("DeleteStudent", "Courses"))
+    @Html.ActionLink(" Delete", "DeleteStudent", "Courses", new { joinId = @join.CourseStudentId }, new { @class="btn btn-info fa fa-minus-circle" })
+    @if (@join.Completed == false)
     {
-      @Html.Hidden("joinId", @join.CourseStudentId)
-      <input type="submit" value="Delete" class="btn btn-info fa fa-trash-alt"/>
+      @Html.ActionLink(" Complete", "Completed", "Courses", new{ joinId = @join.CourseStudentId}, new { @class="btn btn-info fa fa-edit" })
     }
-    @using (Html.BeginForm("Completed", "Courses"))
+    else
     {
-      @if (@join.Completed == false)
-      {
-        @Html.Hidden("joinId", @join.CourseStudentId)
-        <input type="submit" value="Complete" class="btn btn-info fa fa-edit"/>
-      }
-      else
-      {
-        <span>Completed</span>
-      }      
-    }
+      <span>Completed</span>
+    } 
     </li>
   }
   </ul>

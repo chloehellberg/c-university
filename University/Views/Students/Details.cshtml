@@ -3,9 +3,9 @@
 }
 
 @model University.Models.Student;
-@Html.ActionLink(" Back to students", "Index",null, null, new { @class="btn btn-info fa fa-graduation-cap" })
-@Html.ActionLink(" Edit student", "Edit", new { id = Model.StudentId }, new { @class="btn btn-info fa fa-edit" })
-@Html.ActionLink(" Delete Student", "Delete", new { id = Model.StudentId }, new { @class="btn btn-info fa fa-minus-circle" })
+@Html.ActionLink(" All Students", "Index",null, null, new { @class="btn btn-info fa fa-graduation-cap" })
+@Html.ActionLink(" Edit", "Edit", new { id = Model.StudentId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink(" Delete", "Delete", new { id = Model.StudentId }, new { @class="btn btn-info fa fa-minus-circle" })
 
 <h2>@Html.DisplayFor(model => model.Name)'s Details</h2>
 <hr />
@@ -24,7 +24,7 @@ else
     <li>@join.Course.Name - 
       @if (@join.Completed == false)
       {
-        @Html.ActionLink("Complete", "Completed", "Students", new { joinId = join.CourseStudentId }, new { @class="btn btn-info" })
+        @Html.ActionLink(" Complete", "Completed", "Students", new { joinId = join.CourseStudentId }, new { @class="btn btn-info fa fa-check-square-o" })
       }
       else
       {

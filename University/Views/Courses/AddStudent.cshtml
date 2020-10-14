@@ -3,7 +3,7 @@
 }
 
 @model University.Models.Course
-@Html.ActionLink("Back to courses", "Index", null, null, new { @class="btn btn-info fa fa-pencil-ruler" })
+@Html.ActionLink(" All Courses", "Index", null, null, new { @class="btn btn-info fa fa-book" })
 <h2>Add a student</h2>
 
 <h4>Add a student to @Html.DisplayFor(model => model.Name)</h4>
@@ -11,10 +11,12 @@
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.CourseId)
-  <p>
-    @Html.Label("Select student")
-    @Html.DropDownList("studentId")
-  </p>
-  <input type="submit" value="Save" class="btn btn-info fa fa-plus-circle"/>
+  <table>
+    <tr>
+      <td>@Html.Label("Select student")</td>
+      <td>@Html.DropDownList("studentId")</td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-info fa "><i class="fa-plus-circle"> Save</i></button>
 }
 

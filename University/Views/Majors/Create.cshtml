@@ -3,18 +3,20 @@
 }
 
 @model University.Models.Major
-@Html.ActionLink("Show all Majors", "Index", null, new { @class="btn btn-info fa fa-scroll" })
+@Html.ActionLink(" All Majors", "Index", null, new { @class="btn btn-info fa fa-bookmark-o" })
 <h4>Add Major</h4>
 
 @using (Html.BeginForm())
 {
-  <p>
-    @Html.LabelFor(model => model.MajorName)
-    @Html.TextBoxFor(model => model.MajorName)
-  </p>
-  <p>
-    @Html.Label("Select Department")
-    @Html.DropDownList("DepartmentId")
-  </p>
-    <input type="submit" value="Add new Major" class="btn btn-info fa fa-plus-circle" />
+  <table>
+    <tr>
+      <td>@Html.LabelFor(model => model.MajorName)</td>
+      <td>@Html.TextBoxFor(model => model.MajorName)</td>
+    </tr>
+    <tr>
+      <td>@Html.Label("Select Department")</td>
+      <td>@Html.DropDownList("DepartmentId")</td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-info fa" ><i class="fa-plus-circle"> Add</i></button>
 }

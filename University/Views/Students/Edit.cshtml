@@ -3,7 +3,7 @@
 }
 
 @model University.Models.Student
-@Html.ActionLink("Back to students", "Index", null, null, new { @class="btn btn-info fa fa-graduation-cap" })
+@Html.ActionLink(" All Students", "Index", null, null, new { @class="btn btn-info fa fa-graduation-cap" })
 <h2>Edit</h2>
 
 <h4>Edit @Html.DisplayFor(model => model.Name)</h4>
@@ -25,5 +25,5 @@
         <td>@Html.DropDownList("MajorId")</td>
       </tr>
     </table>
-    <button type="submit" value="Save" class="btn btn-info fa"><i class=" fa-edit"> Save</i></button>
+    <button type="submit" class="btn btn-info fa"><i class=" fa-edit"> Save</i></button>
 }
