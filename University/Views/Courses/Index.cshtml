@@ -4,18 +4,20 @@
 
 @using University.Models;
 @model List<University.Models.Course>;
-@Html.ActionLink(" Add", "Create", null, new { @class="btn btn-info fa fa-plus-circle" })
+@Html.ActionLink(" Add", "Create", null, null, new { @class="btn btn-info fa fa-plus-circle" })
 @Html.ActionLink(" Home", "Index", "Home", null, new { @class="btn btn-info fa fa-home" })
 <h1>Courses</h1>
 
-@if (@Model.Count == 0)
-{
-  <h3>No courses have been added yet!</h3>
-} 
+<div class="box">
+  <div class="inner-box">
+    @if (@Model.Count == 0)
+    {
+      <h3>No courses have been added yet!</h3>
+    } 
 
-@foreach (Course course in Model)
-{
-  <li>@Html.ActionLink($"{course.Name}", "Details", new { id = course.CourseId })</li>
-}
-
-
+    @foreach (Course course in Model)
+    {
+      <li>@Html.ActionLink($"{course.Name}", "Details", new { id = course.CourseId })</li>
+    }
+  </div>  
+</div>

@@ -31,3 +31,14 @@ li {
   background:#333;
   padding:8px;
 }
+.box {
+  height: 200px;
+  width: 60%;
+  text-align: left;
+  overflow-y: scroll;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.inner-box {
+  margin: 2% 5% 2% 5%;
+}
